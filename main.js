@@ -11,7 +11,9 @@ const utils = require('@iobroker/adapter-core');
 // Load your modules here, e.g.:
 // const fs = require("fs");
 let parentThis;
+let bSaving = false;
 
+const DEFAULTNAME = 'Put the name of the scene you want to save';
 
 class Scenesaver extends utils.Adapter {
 
@@ -138,7 +140,8 @@ class Scenesaver extends utils.Adapter {
 	onStateChange(id, state) {
 		if (state) {
 			// The state was changed
-			this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+			//this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+			parentThis.changeState(id, state.val, state.ack);
 		} else {
 			// The state was deleted
 			this.log.info(`state ${id} deleted`);
@@ -169,10 +172,32 @@ class Scenesaver extends utils.Adapter {
 		let iScenecount = parseInt(this.config.sceneCount);
 		for (let i = 0; i < iScenecount; i++) {
 			this.log.info('erzeuge() ' + i);
+			await this.setObjectNotExistsAsync('SceneSave ' + i, {
+				type: 'state',
+				common: {
+					name: DEFAULTNAME,
+					type: 'boolean',
+					role: 'indicator',
+					read: true,
+					write: true,
+					def: false
+				},
+				native: {},
+			});
 		}
-
 	}
 
+	//----Ein State wurde veraendert. wir verarbeiten hier nur ack==FALSE
+	//----d.h.: Aenderungen, die ueber Iobroker	 kommen.
+	changeState(id, val, ack) {
+		this.log.info('changeState(). id:' + id + '  val:' + val + '  ack:' + ack);
+		parentThis.getObjectAsync(id).then((data) => {
+			this.log.info(data.common.name);
+
+		}).catch(error => {
+			parentThis.log.error('Name des Datenpukts():' + Object.values(error));
+		});
+	}
 }
 
 if (require.main !== module) {
