@@ -205,7 +205,7 @@ class Scenesaver extends utils.Adapter {
 					parentThis.sendTo(
 						'scenes.0',	//  <----- seneS ... mit einem S am Ende!
 						'save', {
-						sceneId: SCENENAME,
+						sceneId: parentThis.SCENENAME,
 						isForTrue: true     // true if actual values must be saved for `true` state and `false` if for false 
 					},
 						result => { result.error && parentThis.log.error(result.error) }
