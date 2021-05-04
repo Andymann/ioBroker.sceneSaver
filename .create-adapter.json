@@ -1,0 +1,39 @@
+{
+	"cli": true,
+	"adapterName": "scenesaver",
+	"title": "Scene Saver",
+	"description": "An Adapter to save scenes without having to write your own scripts",
+	"keywords": [
+		"scenes",
+		"save",
+		"helper"
+	],
+	"expert": "no",
+	"features": [
+		"adapter"
+	],
+	"adminFeatures": [],
+	"type": "logic",
+	"startMode": "daemon",
+	"connectionType": "local",
+	"dataSource": "push",
+	"connectionIndicator": "no",
+	"language": "JavaScript",
+	"adminReact": "no",
+	"tools": [
+		"ESLint",
+		"type checking"
+	],
+	"indentation": "Tab",
+	"quotes": "single",
+	"es6class": "yes",
+	"authorName": "Andy Fischer",
+	"authorGithub": "Andymann",
+	"authorEmail": "info@Andyland.info",
+	"gitRemoteProtocol": "HTTPS",
+	"gitCommit": "no",
+	"license": "MIT License",
+	"ci": "gh-actions",
+	"dependabot": "no",
+	"creatorVersion": "1.33.0"
+}

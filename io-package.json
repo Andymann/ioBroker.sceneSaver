@@ -1,0 +1,76 @@
+{
+	"common": {
+		"name": "scenesaver",
+		"version": "0.0.1",
+		"news": {
+			"0.0.1": {
+				"en": "initial release",
+				"de": "Erstveröffentlichung",
+				"ru": "Начальная версия",
+				"pt": "lançamento inicial",
+				"nl": "Eerste uitgave",
+				"fr": "Première version",
+				"it": "Versione iniziale",
+				"es": "Versión inicial",
+				"pl": "Pierwsze wydanie",
+				"zh-cn": "首次出版"
+			}
+		},
+		"titleLang": {
+			"en": "Scene Saver",
+			"de": "Szenenschoner",
+			"ru": "Заставка сцены",
+			"pt": "Scene Saver",
+			"nl": "Scene Saver",
+			"fr": "Économiseur de scène",
+			"it": "Salva scena",
+			"es": "Protector de escena",
+			"pl": "Scene Saver",
+			"zh-cn": "场景保护程序"
+		},
+		"desc": {
+			"en": "An Adapter to save scenes without having to write your own scripts",
+			"de": "Ein Adapter zum Speichern von Szenen, ohne eigene Skripte schreiben zu müssen",
+			"ru": "Адаптер для сохранения сцен без написания собственных скриптов",
+			"pt": "Um adaptador para salvar cenas sem ter que escrever seus próprios scripts",
+			"nl": "Een adapter om scènes op te slaan zonder dat u uw eigen scripts hoeft te schrijven",
+			"fr": "Un adaptateur pour enregistrer des scènes sans avoir à écrire vos propres scripts",
+			"it": "Un adattatore per salvare le scene senza dover scrivere i propri script",
+			"es": "Un adaptador para guardar escenas sin tener que escribir tus propios guiones",
+			"pl": "Adapter do zapisywania scen bez konieczności pisania własnych skryptów",
+			"zh-cn": "无需编写自己的脚本即可保存场景的适配器"
+		},
+		"authors": [
+			"Andy Fischer <info@Andyland.info>"
+		],
+		"keywords": [
+			"scenes",
+			"save",
+			"helper"
+		],
+		"license": "MIT",
+		"platform": "Javascript/Node.js",
+		"icon": "scenesaver.png",
+		"enabled": true,
+		"extIcon": "https://raw.githubusercontent.com/Andymann/ioBroker.scenesaver/master/admin/scenesaver.png",
+		"readme": "https://github.com/Andymann/ioBroker.scenesaver/blob/master/README.md",
+		"loglevel": "info",
+		"mode": "daemon",
+		"type": "logic",
+		"compact": true,
+		"connectionType": "local",
+		"dataSource": "push",
+		"materialize": true,
+		"dependencies": [
+			{
+				"js-controller": ">=2.0.0"
+			}
+		]
+	},
+	"native": {
+		"option1": true,
+		"option2": "42"
+	},
+	"objects": [],
+	"instanceObjects": []
+}
