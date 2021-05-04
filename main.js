@@ -172,7 +172,8 @@ class Scenesaver extends utils.Adapter {
 		let iScenecount = parseInt(this.config.sceneCount);
 		for (let i = 0; i < iScenecount; i++) {
 			this.log.info('erzeuge() ' + i);
-			await this.setObjectNotExistsAsync('SceneSave ' + i, {
+			let sStateName = 'SceneSave ' + i;
+			await this.setObjectNotExistsAsync(sStateName, {
 				type: 'state',
 				common: {
 					name: DEFAULTNAME,
@@ -184,6 +185,8 @@ class Scenesaver extends utils.Adapter {
 				},
 				native: {},
 			});
+
+			this.subscribeStates(sStateName);
 		}
 	}
 
