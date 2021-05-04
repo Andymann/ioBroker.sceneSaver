@@ -193,7 +193,7 @@ class Scenesaver extends utils.Adapter {
 	//----Ein State wurde veraendert. wir verarbeiten hier nur ack==FALSE
 	//----d.h.: Aenderungen, die ueber Iobroker	 kommen.
 	changeState(id, val, ack) {
-		this.log.info('changeState(). id:' + id + '  val:' + val + '  ack:' + ack);
+		//this.log.info('changeState(). id:' + id + '  val:' + val + '  ack:' + ack);
 		if ((val == true) && (ack == false)) {
 			parentThis.getObjectAsync(id).then((data) => {
 				// this.log.info(data.common.name);
@@ -203,10 +203,9 @@ class Scenesaver extends utils.Adapter {
 					this.log.info('Save scene:' + data.common.name);
 					let sceneName = data.common.name;
 					parentThis.sendTo(
-						'scene.0',	//  <----- seneS ... mit einem S am Ende!
+						'scenes.0',	//  <----- seneS ... mit einem S am Ende!
 						'save', {
-						sceneId:
-							sceneName,
+						sceneId: parentThis.sceneName,
 						isForTrue: true     // true if actual values must be saved for `true` state and `false` if for false 
 					},
 						result => { result.error && parentThis.log.error(result.error) }
