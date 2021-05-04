@@ -195,15 +195,21 @@ class Scenesaver extends utils.Adapter {
 	changeState(id, val, ack) {
 		this.log.info('changeState(). id:' + id + '  val:' + val + '  ack:' + ack);
 		parentThis.getObjectAsync(id).then((data) => {
-			this.log.info(data.common.name);
+			//this.log.info(data.common.name);
 			if (data.common.name.localeCompare(DEFAULTNAME) == 0) {
-				this.log.error('Please provide the name of the scene that you want to save');
+				this.log.error('Please provide the name of the scene that you want to save.');
 			} else {
-				this.log.info('saving scene:' + data.common.name);
+				this.log.info('Save scene:' + data.common.name);
+				sendTo(
+					'scenes.0',	//  <----- seneS ... mit einem S am Ende!
+					'save', {
+					sceneId:
+						data.common.name,
+					isForTrue: true     // true if actual values must be saved for `true` state and `false` if for false 
+				},
+					result => { result.error && parentThis.log.error(result.error) }
+				);
 			}
-
-		}).catch(error => {
-			parentThis.log.error('Name des Datenpukts():' + Object.values(error));
 		});
 	}
 }
