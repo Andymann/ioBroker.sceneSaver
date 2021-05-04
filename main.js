@@ -203,8 +203,8 @@ class Scenesaver extends utils.Adapter {
 					this.log.info('Save scene:' + data.common.name);
 					const SCENENAME = (data.common.name).toString();
 					parentThis.sendTo(
-						'scenes.0', {
-						command: 'save',
+						'scenes.0',
+						'save'{
 						sceneId: SCENENAME,
 						isForTrue: true     // true if actual values must be saved for `true` state and `false` if for false 
 					},
