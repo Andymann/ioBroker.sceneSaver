@@ -13,5 +13,9 @@ systemDictionary = {
 	'option2': {
 		'en': 'option2',
 		'de': 'Option 2'
+	},
+	'scriptCount': {
+		'en': 'Number of scripts',
+		'de': 'Anzahl'
 	}
 };
