@@ -204,10 +204,9 @@ class Scenesaver extends utils.Adapter {
 
 					//----fiese Falle: Die Instanz im Admin-View heisst 'scene.0...',
 					//----aber die Instanz intern heisst 'scenes.0...'.
-					const INSTANZNAME = (data.common.name).replace('scene.', 'scenes.').toString();
+					//const INSTANZNAME = (data.common.name).replace('scene.', 'scenes.').toString();
 					parentThis.sendTo(
-						//'scenes.0',	// <== sceneS ... S ...
-						INSTANZNAME,
+						'scenes.0',	// <== sceneS ... S ...
 						'save', {
 						sceneId: SCENENAME,
 						isForTrue: true     // true if actual values must be saved for `true` state and `false` if for false 
