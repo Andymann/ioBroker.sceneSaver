@@ -17,5 +17,9 @@ systemDictionary = {
 	'scriptCount': {
 		'en': 'Number of scripts',
 		'de': 'Anzahl'
+	},
+	'sceneInstance': {
+		'en': 'Instance (watch the trailing \'s\')',
+		'de': 'Instanz (bitte beachten: \'scenes\' mit einem \'s\' a, Ende)'
 	}
 };

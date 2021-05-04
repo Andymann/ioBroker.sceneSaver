@@ -45,7 +45,7 @@ class Scenesaver extends utils.Adapter {
 		this.log.info('config option1: ' + this.config.option1);
 		this.log.info('config option2: ' + this.config.option2);
 		this.log.info('config sceneCount: ' + this.config.sceneCount);
-
+		this.log.info('config.sceneInstance: ' + this.config.sceneInstance);
 		/*
 		For every state in the system there has to be also an object of type state
 		Here a simple template for a boolean variable named "testVariable"
@@ -206,7 +206,8 @@ class Scenesaver extends utils.Adapter {
 					//----aber die Instanz intern heisst 'scenes.0...'.
 					//const INSTANZNAME = (data.common.name).replace('scene.', 'scenes.').toString();
 					parentThis.sendTo(
-						'scenes.0',	// <== sceneS ... S ...
+						//'scenes.0',	// <== sceneS ... S ...
+						this.config.sceneInstance,
 						'save', {
 						sceneId: SCENENAME,
 						isForTrue: true     // true if actual values must be saved for `true` state and `false` if for false 

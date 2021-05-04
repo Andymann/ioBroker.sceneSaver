@@ -51,7 +51,8 @@
 	"native": {
 		"option1": true,
 		"option2": "42",
-		"sceneCount": "5"
+		"sceneCount": "5",
+		"sceneInstance": "scenes.0"
 		
 	},
 	"objects": [],
