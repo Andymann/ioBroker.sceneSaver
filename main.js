@@ -203,7 +203,7 @@ class Scenesaver extends utils.Adapter {
 					this.log.info('Save scene:' + data.common.name);
 					let sceneName = data.common.name;
 					parentThis.sendTo(
-						'scenes.0',	//  <----- seneS ... mit einem S am Ende!
+						'scene.0',	//  <----- seneS ... mit einem S am Ende!
 						'save', {
 						sceneId:
 							sceneName,
