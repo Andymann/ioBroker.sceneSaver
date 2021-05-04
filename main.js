@@ -195,7 +195,7 @@ class Scenesaver extends utils.Adapter {
 	changeState(id, val, ack) {
 		this.log.info('changeState(). id:' + id + '  val:' + val + '  ack:' + ack);
 		parentThis.getObjectAsync(id).then((data) => {
-			//this.log.info(data.common.name);
+			// this.log.info(data.common.name);
 			if (data.common.name.localeCompare(DEFAULTNAME) == 0) {
 				this.log.error('Please provide the name of the scene that you want to save.');
 			} else {
