@@ -200,7 +200,7 @@ class Scenesaver extends utils.Adapter {
 				this.log.error('Please provide the name of the scene that you want to save.');
 			} else {
 				this.log.info('Save scene:' + data.common.name);
-				sendTo(
+				parentThis.sendTo(
 					'scenes.0',	//  <----- seneS ... mit einem S am Ende!
 					'save', {
 					sceneId:
