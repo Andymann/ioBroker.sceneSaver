@@ -92,7 +92,7 @@ class Scenesaver extends utils.Adapter {
 		//result = await this.checkGroupAsync('admin', 'admin');
 		//this.log.info('check group user admin group admin: ' + result);
 
-		this.createStateAsync();
+		this.createStates();
 	}
 
 	/**
