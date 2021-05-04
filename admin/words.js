@@ -20,6 +20,6 @@ systemDictionary = {
 	},
 	'sceneInstance': {
 		'en': 'Instance (watch the trailing \'s\')',
-		'de': 'Instanz (bitte beachten: \'scenes\' mit einem \'s\' a, Ende)'
+		'de': 'Instanz (bitte beachten: \'scenes\' mit einem \'s\' am Ende)'
 	}
 };
