@@ -196,14 +196,18 @@ class Scenesaver extends utils.Adapter {
 		//this.log.info('changeState(). id:' + id + '  val:' + val + '  ack:' + ack);
 		if ((val == true) && (ack == false)) {
 			parentThis.getObjectAsync(id).then((data) => {
-				// this.log.info(data.common.name);
 				if (data.common.name.localeCompare(DEFAULTNAME) == 0) {
 					this.log.error('Please provide the name of the scene that you want to save.');
 				} else {
 					this.log.info('Save scene:' + data.common.name);
 					const SCENENAME = (data.common.name).toString();
+
+					//----fiese Falle: Die Instanz im Admin-View heisst 'scene.0...',
+					//----aber die Instanz intern heisst 'scenes.0...'.
+					const INSTANZNAME = (data.common.name).replace('scene.', 'scenes.').toString();
 					parentThis.sendTo(
-						'scenes.0',
+						//'scenes.0',	// <== sceneS ... S ...
+						INSTANZNAME,
 						'save', {
 						sceneId: SCENENAME,
 						isForTrue: true     // true if actual values must be saved for `true` state and `false` if for false 
