@@ -194,23 +194,28 @@ class Scenesaver extends utils.Adapter {
 	//----d.h.: Aenderungen, die ueber Iobroker	 kommen.
 	changeState(id, val, ack) {
 		this.log.info('changeState(). id:' + id + '  val:' + val + '  ack:' + ack);
-		parentThis.getObjectAsync(id).then((data) => {
-			// this.log.info(data.common.name);
-			if (data.common.name.localeCompare(DEFAULTNAME) == 0) {
-				this.log.error('Please provide the name of the scene that you want to save.');
-			} else {
-				this.log.info('Save scene:' + data.common.name);
-				parentThis.sendTo(
-					'scenes.0',	//  <----- seneS ... mit einem S am Ende!
-					'save', {
-					sceneId:
-						data.common.name,
-					isForTrue: true     // true if actual values must be saved for `true` state and `false` if for false 
-				},
-					result => { result.error && parentThis.log.error(result.error) }
-				);
-			}
-		});
+		if (val == true) {
+			parentThis.getObjectAsync(id).then((data) => {
+				// this.log.info(data.common.name);
+				if (data.common.name.localeCompare(DEFAULTNAME) == 0) {
+					this.log.error('Please provide the name of the scene that you want to save.');
+				} else {
+					this.log.info('Save scene:' + data.common.name);
+					let sceneName = data.common.name;
+					parentThis.sendTo(
+						'scenes.0',	//  <----- seneS ... mit einem S am Ende!
+						'save', {
+						sceneId:
+							sceneName,
+						isForTrue: true     // true if actual values must be saved for `true` state and `false` if for false 
+					},
+						result => { result.error && parentThis.log.error(result.error) }
+					);
+				}
+			});
+			this.setStateAsync(id, true);
+
+		}
 	}
 }
 
