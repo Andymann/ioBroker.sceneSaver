@@ -194,7 +194,7 @@ class Scenesaver extends utils.Adapter {
 	//----d.h.: Aenderungen, die ueber Iobroker	 kommen.
 	changeState(id, val, ack) {
 		this.log.info('changeState(). id:' + id + '  val:' + val + '  ack:' + ack);
-		if (val == true) {
+		if ((val == true) && (ack == false)) {
 			parentThis.getObjectAsync(id).then((data) => {
 				// this.log.info(data.common.name);
 				if (data.common.name.localeCompare(DEFAULTNAME) == 0) {
@@ -213,7 +213,7 @@ class Scenesaver extends utils.Adapter {
 					);
 				}
 			});
-			this.setStateAsync(id, true);
+			this.setStateAsync(id, false);
 
 		}
 	}
